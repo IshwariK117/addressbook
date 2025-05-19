@@ -31,25 +31,17 @@ This project is an **Address Book** application that allows users to:
 We selected **PostgreSQL** because it is:
 - Highly reliable and handles **relational data** efficiently.
 - Excellent for managing **multiple addresses per contact** via relational tables.
-- Fully **ACID-compliant**, ensuring data integrity.
 - Supports complex queries, **advanced data types** (like JSON, arrays), and better indexing.
 
-### ❌ Why not MySQL?
-- PostgreSQL has **stronger support for JSON**, array types, and indexing.
-- It provides **more advanced concurrency control** and **richer SQL standards compliance**.
-- PostgreSQL is better for projects that may scale or require **complex schema relationships**.
-
----
 
 ## 🚀 How to Run the Project
 
 ### 🔧 Backend
 
 1. **Install dependencies**:
-   ```bash
+   ```bash 
    pip install fastapi uvicorn psycopg2-binary pydantic
-````
-
+``` 
 2. **Set up PostgreSQL DB**:
 
    * Create a database in PostgreSQL.
