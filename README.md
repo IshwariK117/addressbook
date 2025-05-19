@@ -1,6 +1,4 @@
-Here’s your improved and **well-formatted `README.md`** version:
 
-````markdown
 # 📒 Address Book Application
 
 ## 📌 Project Overview
@@ -16,7 +14,6 @@ This project is an **Address Book** application that allows users to:
 - ⚙️ **Backend:** FastAPI setup complete. Basic API routes are created. CRUD operations & validations are **partially implemented**.
 - 🗃️ **Database:** **PostgreSQL** selected. Integration and migrations are **in progress**.
 
----
 
 ## 🛠️ Technology Stack
 
@@ -27,7 +24,7 @@ This project is an **Address Book** application that allows users to:
 | Database    | PostgreSQL         |
 | AI Tool     | Cursor AI          |
 
----
+
 
 ## 💾 Database Justification
 
