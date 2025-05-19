@@ -71,7 +71,7 @@ We selected **PostgreSQL** because it is:
 
 ---
 
-## 📂 Folder Structure (Optional)
+## 📂 Folder Structure
 
 ```
 addressbook/
