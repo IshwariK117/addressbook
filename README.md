@@ -15,6 +15,14 @@ This project is an **Address Book** application that allows users to:
 - 🗃️ **Database:** **PostgreSQL** selected. Integration and migrations are **in progress**.
 
 
+### 🖼️ UI Views
+
+<img src="ss1 (3).png" alt="Address Book UI" width="400"/>
+<img src="ss1 (1).png" alt="Address Book UI" width="400"/>
+<img src="ss1 (2).png" alt="Address Book UI" width="400"/>
+
+
+
 ## 🛠️ Technology Stack
 
 | Layer       | Technology         |
@@ -63,11 +71,6 @@ We selected **PostgreSQL** because it is:
 
 ## 📸 Screenshots
 
-### 🖼️ UI Views
-
-<img src="ss1 (3).png" alt="Address Book UI" width="400"/>
-<img src="ss1 (1).png" alt="Address Book UI" width="400"/>
-<img src="ss1 (2).png" alt="Address Book UI" width="400"/>
 
 ---
 
