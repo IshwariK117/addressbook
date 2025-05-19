@@ -41,7 +41,7 @@ We selected **PostgreSQL** because it is:
 1. **Install dependencies**:
    ```bash 
    pip install fastapi uvicorn psycopg2-binary pydantic
-``` 
+``
 2. **Set up PostgreSQL DB**:
 
    * Create a database in PostgreSQL.
