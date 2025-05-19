@@ -69,25 +69,4 @@ We selected **PostgreSQL** because it is:
 
 ---
 
-## 📸 Screenshots
 
-
----
-
-## 📂 Folder Structure
-
-```
-addressbook/
-├── app/
-│   ├── routers/
-│   │   └── contact.py
-│   ├── models/
-│   └── database.py
-├── main.py
-├── templates/
-│   └── index.html
-├── static/
-│   └── styles.css
-├── README.md
-└── requirements.txt
-```
