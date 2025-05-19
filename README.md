@@ -48,3 +48,7 @@ uvicorn main:app --reload
 
 AI Tools Used
 Cursor AI was used for code autocompletion and assistance during development.
+
+Screenshots 
+<img src="assets/addressbook_ui.png" alt="Address Book UI" width="400"/>
+
