@@ -1,0 +1,63 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Address Book</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+  <h1>Address Book</h1>
+  <a href="create_contact.html" class="btn btn-primary mb-3">Add New Contact</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Addresses</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="contacts-list">
+      <!-- Contacts will be loaded here using JavaScript -->
+    </tbody>
+  </table>
+
+  <script>
+    async function loadContacts() {
+      const response = await fetch("http://localhost:8000/contacts/");
+      const contacts = await response.json();
+      const table = document.getElementById("contacts-list");
+      table.innerHTML = "";
+
+      contacts.forEach(contact => {
+        const addresses = contact.addresses.map(a => a.address_line + ', ' + a.city + ', ' + a.pin_code).join("<br>");
+        table.innerHTML += `
+          <tr>
+            <td>${contact.name}</td>
+            <td>${contact.email}</td>
+            <td>${contact.phone}</td>
+            <td>${addresses}</td>
+            <td>
+              <a href="edit_contact.html?id=${contact.id}" class="btn btn-warning btn-sm">Edit</a>
+              <button onclick="deleteContact(${contact.id})" class="btn btn-danger btn-sm">Delete</button>
+            </td>
+          </tr>`;
+      });
+    }
+
+    async function deleteContact(id) {
+      if (confirm("Are you sure you want to delete this contact?")) {
+        await fetch(`http://localhost:8000/contacts/${id}`, { method: "DELETE" });
+        loadContacts();
+      }
+    }
+
+
+    
+
+    loadContacts();
+  </script>
+</body>
+</html>

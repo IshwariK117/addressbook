@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Contact</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+  <h2>Edit Contact</h2>
+  <form id="editForm">
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" class="form-control" name="name" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" name="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Phone</label>
+      <input type="text" class="form-control" name="phone" required>
+    </div>
+
+    <div id="addresses-container">
+      <h5>Addresses</h5>
+    </div>
+    <button type="button" onclick="addAddress()" class="btn btn-secondary mb-3">Add Address</button>
+    <br>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="index.html" class="btn btn-outline-secondary">Cancel</a>
+  </form>
+
+  <script>
+    const contactId = new URLSearchParams(window.location.search).get('id');
+
+    // Add an address block
+    function addAddress(address = {}) {
+      const container = document.getElementById("addresses-container");
+      const addressHTML = `
+        <div class="address mb-3">
+          <input type="text" placeholder="Address Line" class="form-control mb-2" name="address_line" value="${address.address_line || ''}">
+          <input type="text" placeholder="City" class="form-control mb-2" name="city" value="${address.city || ''}">
+          <input type="text" placeholder="Pin Code" class="form-control mb-2" name="pin_code" value="${address.pin_code || ''}">
+        </div>`;
+      container.insertAdjacentHTML('beforeend', addressHTML);
+    }
+
+    // Fetch contact data and populate form
+    async function loadContact() {
+      const response = await fetch(`http://localhost:8000/contacts/${contactId}`);
+      const data = await response.json();
+
+      const form = document.getElementById('editForm');
+      form.name.value = data.name;
+      form.email.value = data.email;
+      form.phone.value = data.phone;
+
+      data.addresses.forEach(addAddress);
+    }
+
+    document.getElementById("editForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const addresses = [];
+      document.querySelectorAll(".address").forEach(addr => {
+        addresses.push({
+          address_line: addr.querySelector("[name='address_line']").value,
+          city: addr.querySelector("[name='city']").value,
+          pin_code: addr.querySelector("[name='pin_code']").value
+        });
+      });
+
+      const updatedData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        addresses: addresses
+      };
+
+      await fetch(`http://localhost:8000/contacts/${contactId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedData)
+      });
+
+      window.location.href = "index.html";
+    });
+
+    // Load data on page load
+    loadContact();
+  </script>
+</body>
+</html>
