@@ -68,20 +68,18 @@ We selected **PostgreSQL** because it is:
 * **Cursor AI** was used for smart code completions, error detection, and faster development.
 
 ---
-
+```bash
 addressbook-app/
 ├── frontend/
-│   ├── index.html          # Main contact list page
-│   ├── create_contact.html # Add new contact page
-│   └── edit_contact.html   # Edit contact page
+│   ├── index.html              # Main contact list page
+│   ├── create_contact.html     # Add new contact page
+│   └── edit_contact.html       # Edit contact page
 ├── app/
-│   ├── main.py            # FastAPI application entry point
-│   ├── database.py        # Database configuration
-│   ├── models.py          # Database models
-│   ├── schemas.py         # Pydantic models for validation
-│   ├── crud.py           # Database operations
+│   ├── main.py                 # FastAPI application entry point
+│   ├── database.py             # Database configuration (SQLAlchemy)
+│   ├── models.py               # SQLAlchemy models
+│   ├── schemas.py              # Pydantic models for request/response validation
+│   ├── crud.py                 # CRUD operations for database
 │   └── routers/
-│       └── contact.py     # API endpoints
-└── requirements.txt       # Python dependencies
-
-
+│       └── contact.py          # API routes for contact management
+└── requirements.txt            # Python dependencies
