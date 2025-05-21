@@ -69,4 +69,19 @@ We selected **PostgreSQL** because it is:
 
 ---
 
+addressbook-app/
+├── frontend/
+│   ├── index.html          # Main contact list page
+│   ├── create_contact.html # Add new contact page
+│   └── edit_contact.html   # Edit contact page
+├── app/
+│   ├── main.py            # FastAPI application entry point
+│   ├── database.py        # Database configuration
+│   ├── models.py          # Database models
+│   ├── schemas.py         # Pydantic models for validation
+│   ├── crud.py           # Database operations
+│   └── routers/
+│       └── contact.py     # API endpoints
+└── requirements.txt       # Python dependencies
+
 
